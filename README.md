@@ -135,6 +135,7 @@ Watch the full installation and setup walkthrough here: [YouTube - HexStrike AI 
 
 You can install and run HexStrike AI MCPs with various AI clients, including:
 
+- **Claude Code** - Anthropic's official CLI for Claude
 - **5ire**
 - **VS Code Copilot**
 - **Roo Code**
@@ -211,6 +212,35 @@ curl -X POST http://localhost:8888/api/intelligence/analyze-target \
 ---
 
 ## AI Client Integration Setup
+
+### Claude Code Integration
+
+Add to your `CLAUDE.md` file:
+```markdown
+## Development Commands
+
+```bash
+# Start HexStrike MCP Server
+python3 hexstrike_server.py
+
+# Run server with debug mode
+python3 hexstrike_server.py --debug
+
+# Test server health
+curl http://localhost:8888/health
+```
+
+## Project Information
+
+HexStrike AI is an advanced AI-powered penetration testing MCP framework with 150+ security tools and 12+ autonomous AI agents. The server runs on port 8888 by default and provides comprehensive cybersecurity automation capabilities.
+
+### Key Features
+- 150+ security tools for comprehensive testing
+- 12+ AI agents for autonomous decision-making
+- Network, web app, cloud, and binary security testing
+- Real-time vulnerability intelligence
+- Advanced process management with smart caching
+```
 
 ### Claude Desktop Integration or Cursor
 
