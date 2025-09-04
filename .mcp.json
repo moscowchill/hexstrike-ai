@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "hexstrike-ai": {
+      "command": "python3",
+      "args": [
+        "hexstrike_mcp.py",
+        "--server",
+        "http://localhost:8888"
+      ],
+      "description": "HexStrike AI v6.0 - Advanced AI-powered penetration testing MCP framework with 150+ security tools and 12+ autonomous AI agents",
+      "env": {
+        "PYTHONPATH": ".",
+        "HEXSTRIKE_SERVER_URL": "http://localhost:8888",
+        "HEXSTRIKE_DEBUG": "false"
+      }
+    }
+  }
+}

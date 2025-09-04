@@ -4,6 +4,42 @@
 
 HexStrike AI is an advanced AI-powered penetration testing MCP (Model Context Protocol) framework with 150+ security tools and 12+ autonomous AI agents. This project provides comprehensive cybersecurity automation capabilities through intelligent decision-making engines and real-time vulnerability analysis.
 
+## Claude Code MCP Integration
+
+This project includes a `.mcp.json` configuration file that allows Claude Code to automatically discover and connect to the HexStrike AI MCP server. The server provides over 100 security tools as MCP functions that can be called directly by Claude Code.
+
+### Quick Setup for Claude Code
+
+1. **Start the HexStrike API Server:**
+   ```bash
+   python3 hexstrike_server.py
+   ```
+
+2. **The MCP server will be automatically discovered** by Claude Code through the `.mcp.json` configuration file in this project directory.
+
+3. **Available MCP Tools:** 100+ security tools are exposed as MCP functions, including:
+   - Network scanning (nmap, rustscan, masscan)
+   - Web application testing (gobuster, nuclei, sqlmap)  
+   - Binary analysis (ghidra, radare2, gdb)
+   - Cloud security (prowler, trivy, kube-hunter)
+   - CTF tools (volatility, binwalk, steghide)
+   - AI-powered workflows (intelligent_smart_scan, ai_recon_workflow)
+
+### Manual MCP Server Management
+
+If you need to manually manage the MCP server connection:
+
+```bash
+# Add HexStrike AI MCP server to Claude Code
+claude mcp add hexstrike-ai --env HEXSTRIKE_SERVER_URL=http://localhost:8888 -- python3 hexstrike_mcp.py --server http://localhost:8888
+
+# List active MCP servers
+claude mcp list
+
+# Remove the server if needed
+claude mcp remove hexstrike-ai
+```
+
 ## Development Commands
 
 ### Server Management
