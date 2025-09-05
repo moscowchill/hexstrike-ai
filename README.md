@@ -215,6 +215,12 @@ curl -X POST http://localhost:8888/api/intelligence/analyze-target \
 
 ### Claude Code Integration
 
+**Automatic Discovery (Recommended):**
+Claude Code will automatically discover and connect to HexStrike AI through the included `.mcp.json` configuration file. Simply:
+1. Start the HexStrike server: `python3 hexstrike_server.py`
+2. Run Claude Code in this directory - it will auto-connect to HexStrike MCP
+
+**Manual Configuration:**
 Add to your `CLAUDE.md` file:
 ```markdown
 ## Development Commands
@@ -249,13 +255,17 @@ Edit `~/.config/Claude/claude_desktop_config.json`:
 {
   "mcpServers": {
     "hexstrike-ai": {
-      "command": "python3",
+      "command": "./hexstrike_env/bin/python3",
       "args": [
-        "/path/to/hexstrike-ai/hexstrike_mcp.py",
+        "hexstrike_mcp.py",
         "--server",
         "http://localhost:8888"
       ],
       "description": "HexStrike AI v6.0 - Advanced Cybersecurity Automation Platform",
+      "env": {
+        "PYTHONPATH": ".",
+        "HEXSTRIKE_SERVER_URL": "http://localhost:8888"
+      },
       "timeout": 300,
       "disabled": false
     }
@@ -271,12 +281,16 @@ Configure VS Code settings in `.vscode/settings.json`:
   "servers": {
     "hexstrike": {
       "type": "stdio",
-      "command": "python3",
+      "command": "./hexstrike_env/bin/python3",
       "args": [
-        "/path/to/hexstrike-ai/hexstrike_mcp.py",
+        "hexstrike_mcp.py",
         "--server",
         "http://localhost:8888"
-      ]
+      ],
+      "env": {
+        "PYTHONPATH": ".",
+        "HEXSTRIKE_SERVER_URL": "http://localhost:8888"
+      }
     }
   },
   "inputs": []
