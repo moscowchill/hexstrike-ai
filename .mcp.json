@@ -1,15 +1,15 @@
 {
   "mcpServers": {
     "hexstrike-ai": {
-      "command": "/home/kali/Documents/Tools/hexstrike-ai/hexstrike_env/bin/python3",
+      "command": "./hexstrike_env/bin/python3",
       "args": [
-        "/home/kali/Documents/Tools/hexstrike-ai/hexstrike_mcp.py",
+        "hexstrike_mcp.py",
         "--server",
         "http://127.0.0.1:8888"
       ],
       "description": "HexStrike AI v6.0 - Advanced AI-powered penetration testing MCP framework with 150+ security tools and 12+ autonomous AI agents",
       "env": {
-        "PYTHONPATH": "/home/kali/Documents/Tools/hexstrike-ai",
+        "PYTHONPATH": ".",
         "HEXSTRIKE_SERVER_URL": "http://127.0.0.1:8888",
         "HEXSTRIKE_DEBUG": "false"
       }
